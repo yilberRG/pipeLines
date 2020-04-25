@@ -11,7 +11,8 @@ jobs:
       - run:
           name: "Deploy develop"
           command: |
-            scp -v -o StrictHostKeyChecking=no -r index.html ubuntu@ec2-3-84-99-215.compute-1.amazonaws.com:var/www/html/index.html
+            ls --all
+            scp -v -o StrictHostKeyChecking=no index.html ubuntu@ec2-3-84-99-215.compute-1.amazonaws.com:var/www/html/index.html
 workflows: 
   version: 2
   Ejecutar:
