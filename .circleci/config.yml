@@ -6,11 +6,12 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "67:9e:3b:eb:8f:9e:23:f7:e6:0f:ed:aa:b1:74:b1:e1"
+            - "56:91:33:d7:f1:58:09:79:16:9d:71:2e:5f:be:d8:98"
       - checkout
       - run:
           name: "Deploy development"
           command: |
+            cat >> ~/.ssh/config << EOF
             scp -vvv -o StrictHostKeyChecking=no index.html ec2-3-84-99-215.compute-1.amazonaws.com:/var/www/html/index.html
 workflows: 
   version: 2
