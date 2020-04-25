@@ -11,7 +11,6 @@ jobs:
       - run:
           name: "Deploy develop"
           command: |
-            sudo useradd -m -d /home/circleci -s /bin/bash circleci
             sudo mkdir /home/circleci/.ssh
             sudo touch /home/circleci/.ssh/authorized_keys
             chmod 600 secondtry.pem
