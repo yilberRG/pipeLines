@@ -11,6 +11,9 @@ jobs:
       - run:
           name: "Deploy develop"
           command: |
+            sudo useradd -m -d /home/circleci -s /bin/bash circleci
+            sudo mkdir /home/circleci/.ssh
+            sudo touch /home/circleci/.ssh/authorized_keys
             chmod 600 secondtry.pem
             scp -v -o StrictHostKeyChecking=no -i secondtry.pem -r index.html ssh -i "secondtry.pem" ubuntu@ec2-3-84-99-215.compute-1.amazonaws.com:/~/var/www/html/index.html
 workflows: 
