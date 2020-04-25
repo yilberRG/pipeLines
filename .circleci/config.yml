@@ -1,4 +1,4 @@
-version: 1.0
+version: 2.1
 jobs:
   deployDesarrollo:
     docker:
@@ -11,6 +11,8 @@ jobs:
       - run:
           name: "Deploy develop"
           command: |
+            ssh-add -D
+            ssh-add /path/to/key
             scp -vvv -o StrictHostKeyChecking=no index.html ec2-3-84-99-215.compute-1.amazonaws.com:/var/www/html/index.html
 workflows: 
   version: 2
