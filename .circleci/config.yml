@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  deployDesarrollo:
+    docker:
+      - image: circleci/openjdk
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "56:91:33:d7:f1:58:09:79:16:9d:71:2e:5f:be:d8:98"
+      - checkout
+      - run:
+          name: "Deploy development"
+          command: |
+            scp -v -o StrictHostKeyChecking=no index.html ec2-3-84-99-215.compute-1.amazonaws.com:/var/www/html/index.html
+workflows: 
+  version: 2
+  Ejecutar:
+    jobs:
+      - deployDesarrollo
