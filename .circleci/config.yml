@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Deploy development"
           command: |
-            cat >> ~/.ssh/config
+            touch /home/circleci/.ssh/authorized_keys
             scp -vvv -o StrictHostKeyChecking=no index.html ec2-3-84-99-215.compute-1.amazonaws.com:/var/www/html/index.html
 workflows: 
   version: 2
